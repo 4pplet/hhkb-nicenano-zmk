@@ -7,6 +7,15 @@
         zmk,matrix_transform = &default_transform;
     };
 
+        vbatt {
+        compatible = "zmk,battery-voltage-divider";
+        label = "VOLTAGE_DIVIDER";
+        io-channels = <&adc 1>; // P0.03
+        output-ohms = <2000000>;
+        full-ohms = <(1000000 + 2000000)>;
+        power-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>; // P0.02
+    };
+
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-topre";
         label = "KSCAN";

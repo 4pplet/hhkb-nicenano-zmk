@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/kscan_mock.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -9,23 +10,16 @@
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-topre";
         label = "KSCAN";
-        gpios = <&pro_micro_d 9 GPIO_ACTIVE_HIGH>, /* 0: POWER */
-                <&pro_micro_d 8 (GPIO_ACTIVE_LOW|GPIO_PULL_UP)>, /* 1: KEY */
-                <&pro_micro_d 7 GPIO_ACTIVE_HIGH>, /* 2: HYS */
-                <&pro_micro_d 6 GPIO_ACTIVE_HIGH>, /* 3: BIT0 */
-                <&pro_micro_d 5 GPIO_ACTIVE_HIGH>, /* 4: BIT1 */
-                <&pro_micro_d 4 GPIO_ACTIVE_HIGH>, /* 5: BIT2 */
-                <&pro_micro_d 3 GPIO_ACTIVE_HIGH>, /* 6: BIT3 */
-                <&pro_micro_d 2 GPIO_ACTIVE_HIGH>, /* 7: BIT4 */
-                <&pro_micro_d 0 GPIO_ACTIVE_HIGH>, /* 8: BIT5 */
-                <&pro_micro_d 1 GPIO_ACTIVE_HIGH>; /* 9: STROBE */
-    };
-
-    pm_wake_sensor {
-        compatible = "zmk,pm-wake-sensor";
-        status = "okay";
-        power-gpios = <&pro_micro_d 19 GPIO_ACTIVE_HIGH>;
-        sensor-gpios = <&pro_micro_d 10 (GPIO_ACTIVE_LOW|GPIO_PULL_DOWN)>;
+        gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>, /* 0: POWER */
+                <&gpio0 4 (GPIO_ACTIVE_LOW|GPIO_PULL_UP)>, /* 1: KEY */
+                <&gpio0 5 GPIO_ACTIVE_HIGH>, /* 2: HYS */
+                <&gpio0 22 GPIO_ACTIVE_HIGH>, /* 3: BIT0 */
+                <&gpio0 7 GPIO_ACTIVE_HIGH>, /* 4: BIT1 */
+                <&gpio1 9 GPIO_ACTIVE_HIGH>, /* 5: BIT2 */
+                <&gpio0 12 GPIO_ACTIVE_HIGH>, /* 6: BIT3 */
+                <&gpio0 23 GPIO_ACTIVE_HIGH>, /* 7: BIT4 */
+                <&gpio0 21 GPIO_ACTIVE_HIGH>, /* 8: BIT5 */
+                <&gpio0 19 GPIO_ACTIVE_HIGH>; /* 9: STROBE */
     };
 
     default_transform: keymap_transform_0 {
